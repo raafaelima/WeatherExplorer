@@ -18,11 +18,11 @@ class CacheManagerMock: CacheManager {
     var mockData = Data()
 
     func load() -> Data {
-        didCallSave = true
+        didCallLoad = true
         return mockData
     }
 
     func save(onCache data: Data) {
-        didCallLoad = true
+        didCallSave = true
     }
 }

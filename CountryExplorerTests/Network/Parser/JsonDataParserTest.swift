@@ -2,7 +2,7 @@
 //  JsonDataParserTest.swift
 //  CountryExplorerTests
 //
-//  Created by CTW00710-Admin on 28/10/2021.
+//  Created by Rafael Lima on 28/10/2021.
 //
 
 import Foundation
@@ -86,10 +86,10 @@ class JsonDataParserTest: XCTestCase {
 
         sut.process(data: mockData) { (result: Result<[CountriesResponse], ParserError>) in
             switch result {
-            case .success(let counties):
-                XCTAssertEqual(counties.count, 2)
-                XCTAssertEqual(counties[0].name, "Brazil")
-                XCTAssertEqual(counties[1].name, "Portugal")
+            case .success(let countries):
+                XCTAssertEqual(countries.count, 2)
+                XCTAssertEqual(countries[0].name, "Brazil")
+                XCTAssertEqual(countries[1].name, "Portugal")
                 expectation.fulfill()
             default:
                 XCTFail()
