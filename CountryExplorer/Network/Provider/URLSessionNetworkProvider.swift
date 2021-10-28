@@ -10,16 +10,14 @@ import Foundation
 struct URLSessionNetworkProvider: NetworkProvider {
 
     var session: URLSession
-    var cacheManager: CacheManager
     var reachability: ReachabilityType
 
-    init(session: URLSession = .pinning, reachability: ReachabilityType = Reachability(), cacheManager: CacheManager = LocalCacheManager()) {
-        self.reachability = reachability
-        self.cacheManager = cacheManager
+    init(session: URLSession = .pinning, reachability: ReachabilityType = Reachability()) {
         self.session = session
+        self.reachability = reachability
     }
 
-    func requestData<T: Codable>(from endpoint: Endpoint, completion: @escaping (Result<T, ApiError>) -> Void) {
+    func requestData(from endpoint: Endpoint, completion: @escaping (Result<Data, ApiError>) -> Void) {
 
         let remoteDataTask = session.dataTask(with: endpoint.urlRequest()) { data, _, _ in
 
@@ -28,24 +26,13 @@ struct URLSessionNetworkProvider: NetworkProvider {
                 return
             }
 
-            self.cacheManager.save(onCache: receivedData)
-            self.process(data: receivedData, completion)
+            completion(.success(receivedData))
         }
 
-        if self.reachability.currentStatus() == .notReachable {
-            let cachedData = cacheManager.load()
-            process(data: cachedData, completion)
+        if reachability.currentStatus() == .notReachable {
+            completion(.failure(.notReachable))
         } else {
             remoteDataTask.resume()
-        }
-    }
-
-    private func process<T: Codable>(data: Data, _ completion: @escaping (Result<T, ApiError>) -> Void) {
-        do {
-            let objectResponse = try JSONDecoder().decode(T.self, from: data)
-            completion(.success(objectResponse))
-        } catch {
-            completion(.failure(.dataParsing))
         }
     }
 }

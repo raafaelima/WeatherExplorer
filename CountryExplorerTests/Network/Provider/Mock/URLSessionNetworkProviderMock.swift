@@ -24,7 +24,7 @@ class URLSessionNetworkProviderMock: NetworkProvider {
         self.endpointRequestURL = endpoint.urlRequest().url!.absoluteString
 
         if forceError {
-            completion(.failure(.apiFailure))
+            completion(.failure(.emptyData))
         } else {
             if responseEmpty {
                 let response = JSONHelper.getObjectFrom(json: "[]", type: T.self)!

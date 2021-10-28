@@ -8,6 +8,9 @@
 import Foundation
 
 protocol CacheManager {
+
+    var storageManager: StorageManager { get }
+
     func load() -> Data
     func save(onCache data: Data)
 }

@@ -11,6 +11,8 @@ import Foundation
 
 class CacheManagerMock: CacheManager {
 
+    var storageManager: StorageManager = FileStorageManager()
+
     var didCallLoad = false
     var didCallSave = false
     var mockData = Data()

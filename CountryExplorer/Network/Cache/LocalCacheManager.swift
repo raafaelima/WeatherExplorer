@@ -9,8 +9,8 @@ import Foundation
 
 struct LocalCacheManager: CacheManager {
 
+    var storageManager: StorageManager
     private let cacheFile = "local_cache.json"
-    private var storageManager: StorageManager
 
     init(storageManager: StorageManager = FileStorageManager()) {
         self.storageManager = storageManager

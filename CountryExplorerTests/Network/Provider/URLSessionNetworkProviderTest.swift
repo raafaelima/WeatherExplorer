@@ -14,9 +14,8 @@ class URLSessionNetworkProviderTest: XCTestCase {
 
     private var sut: NetworkProvider!
     private var mockSession: URLSession!
-    private let endpoint: Endpoint = AllCountriesEndpoint()
 
-    private let cacheManagerMock = CacheManagerMock()
+    private let endpoint: Endpoint = DummyEndpoint()
     private let reachabilityMock = ReachabilityMock()
 
     override func setUp() {
@@ -24,7 +23,28 @@ class URLSessionNetworkProviderTest: XCTestCase {
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [URLProtocolMock.self]
         mockSession = URLSession(configuration: configuration)
-        sut = URLSessionNetworkProvider(session: mockSession, reachability: reachabilityMock, cacheManager: cacheManagerMock)
+        sut = URLSessionNetworkProvider(session: mockSession, reachability: reachabilityMock)
+    }
+
+    func testShouldReturnValidData() throws {
+
+        let expectation = XCTestExpectation(description: "response")
+
+        URLProtocolMock.requestHandler = { _ in
+            return (HTTPURLResponse(), Data())
+        }
+
+        sut.requestData(from: endpoint) { (result: Result<Data, ApiError>) in
+            switch result {
+            case .success(let response):
+                XCTAssertNotNil(response)
+                expectation.fulfill()
+            default:
+                XCTFail()
+            }
+        }
+
+        wait(for: [expectation], timeout: 1)
     }
 
     func testShouldReturnEmptyDataErrorWhenThereIsNoResponseFromServer() throws {
@@ -35,102 +55,10 @@ class URLSessionNetworkProviderTest: XCTestCase {
             return (HTTPURLResponse(), nil)
         }
 
-        sut.requestData(from: endpoint) { (result: Result<CountriesResponse, ApiError>) in
+        sut.requestData(from: endpoint) { (result: Result<Data, ApiError>) in
             switch result {
             case .failure(let error):
-                XCTAssertEqual(error, ApiError.emptyData)
-                expectation.fulfill()
-            default:
-                XCTFail()
-            }
-        }
-
-        wait(for: [expectation], timeout: 1)
-    }
-
-    func testShouldReturnDataParsingErrorWhenDataIsEmpty() throws {
-
-        let expectation = XCTestExpectation(description: "response")
-
-        URLProtocolMock.requestHandler = { _ in
-            return (HTTPURLResponse(), "".data(using: .utf8))
-        }
-
-        sut.requestData(from: endpoint) { (result: Result<CountriesResponse, ApiError>) in
-            switch result {
-            case .failure(let error):
-                XCTAssertEqual(error, ApiError.dataParsing)
-                expectation.fulfill()
-            default:
-                XCTFail()
-            }
-        }
-
-        wait(for: [expectation], timeout: 1)
-    }
-
-    func testShouldReturnDataParsingErrorWhenDataIsWrong() throws {
-
-        let expectation = XCTestExpectation(description: "response")
-
-        URLProtocolMock.requestHandler = { _ in
-            return (HTTPURLResponse(), "[{\"dummy\":\"dummy\"}]".data(using: .utf8))
-        }
-
-        sut.requestData(from: endpoint) { (result: Result<CountriesResponse, ApiError>) in
-            switch result {
-            case .failure(let error):
-                XCTAssertEqual(error, ApiError.dataParsing)
-                expectation.fulfill()
-            default:
-                XCTFail()
-            }
-        }
-
-        wait(for: [expectation], timeout: 1)
-    }
-
-    func testShouldReturnValidDataWhenServerRespondAValidJson() throws {
-
-        let expectation = XCTestExpectation(description: "response")
-
-        let sampleProfileData = JSONHelper.getObjectFrom(json: "country", type: CountriesResponse.self)!
-        let mockData = try JSONEncoder().encode(sampleProfileData)
-
-        URLProtocolMock.requestHandler = { _ in
-            return (HTTPURLResponse(), mockData)
-        }
-
-        sut.requestData(from: endpoint) { (result: Result<CountriesResponse, ApiError>) in
-            switch result {
-            case .success(let country):
-                XCTAssertEqual(country.name, "Portugal")
-                expectation.fulfill()
-            default:
-                XCTFail()
-            }
-        }
-
-        wait(for: [expectation], timeout: 1)
-    }
-
-    func testShouldReturnValidDataArrayWhenServerRespondAValidJson() throws {
-
-        let expectation = XCTestExpectation(description: "response")
-
-        let sampleProfileData = JSONHelper.getObjectFrom(json: "countries", type: [CountriesResponse].self)!
-        let mockData = try JSONEncoder().encode(sampleProfileData)
-
-        URLProtocolMock.requestHandler = { _ in
-            return (HTTPURLResponse(), mockData)
-        }
-
-        sut.requestData(from: endpoint) { (result: Result<[CountriesResponse], ApiError>) in
-            switch result {
-            case .success(let counties):
-                XCTAssertEqual(counties.count, 2)
-                XCTAssertEqual(counties[0].name, "Brazil")
-                XCTAssertEqual(counties[1].name, "Portugal")
+                XCTAssertEqual(error, .emptyData)
                 expectation.fulfill()
             default:
                 XCTFail()
@@ -144,16 +72,12 @@ class URLSessionNetworkProviderTest: XCTestCase {
 
         let expectation = XCTestExpectation(description: "response")
 
-        let sampleProfileData = JSONHelper.getObjectFrom(json: "country", type: CountriesResponse.self)!
-        let mockData = try JSONEncoder().encode(sampleProfileData)
-
         reachabilityMock.forceError = true
-        cacheManagerMock.mockData = mockData
 
-        sut.requestData(from: endpoint) { (result: Result<CountriesResponse, ApiError>) in
+        sut.requestData(from: endpoint) { (result: Result<Data, ApiError>) in
             switch result {
-            case .success(let country):
-                XCTAssertEqual(country.name, "Portugal")
+            case .failure(let error):
+                XCTAssertEqual(error, .notReachable)
                 expectation.fulfill()
             default:
                 XCTFail()
