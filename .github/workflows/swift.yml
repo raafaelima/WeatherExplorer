@@ -26,7 +26,7 @@ jobs:
           bundler-cache: true
 
       - name: Bundle Install
-        run: bundle exec install
+        run: bundle install
         
       - name: Run tests
         run: bundle exec fastlane test
