@@ -20,10 +20,9 @@ jobs:
           xcode-version: latest-stable
 
       - name: Setup ruby
-        uses: ruby/setup-ruby@v1
+        uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.6
-          bundler-cache: true
 
       - name: Bundle Install
         run: bundle install
