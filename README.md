@@ -8,6 +8,9 @@ In the app you will find the following structure:
 * CountyExploreTests - All the Unit Tests
 * CountyExploreUITests - All The UiTests
 
+## Thought Process
+You can follow my thought process, architecture diagrams, and some explanations about technical decisions on the [PR history](https://github.com/raafaelima/CountyExplorer/pulls?q=is%3Apr).
+
 ## TechDetails
 I'm using Fastlane to automate the tests and lint executions.
 I use Carthage as a dependency manager and the following libraries are used to support:
@@ -28,7 +31,7 @@ I use Carthage as a dependency manager and the following libraries are used to s
 >export LANG=en_US.UTF-8
 >```
 
-4. Setup Enviroment *
+4. Setup Environment *
 >
 >```bash
 >make setup
