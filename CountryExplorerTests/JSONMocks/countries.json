@@ -1,0 +1,40 @@
+[
+    {
+        "name": "Brazil",
+        "topLevelDomain": [
+            ".br"
+        ],
+        "alpha2Code": "BR",
+        "alpha3Code": "BRA",
+        "callingCodes": [
+            "55"
+        ],
+        "capital": "Bras\u00edlia",
+        "altSpellings": [
+            "BR",
+            "Brasil",
+            "Federative Republic of Brazil",
+            "Rep\u00fablica Federativa do Brasil"
+        ],
+        "region": "Americas"
+    },
+    {
+        "name": "Portugal",
+        "topLevelDomain": [
+            ".pt"
+        ],
+        "alpha2Code": "PT",
+        "alpha3Code": "PRT",
+        "callingCodes": [
+            "351"
+        ],
+        "capital": "Lisbon",
+        "altSpellings": [
+            "PT",
+            "Portuguesa",
+            "Portuguese Republic",
+            "Rep\u00fablica Portuguesa"
+        ],
+        "region": "Europe"
+    }
+]

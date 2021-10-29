@@ -7,7 +7,7 @@
 	<key>ApiKey</key>
 	<string>123apikey321</string>
 	<key>Host</key>
-	<string>http://testhost.com/v2</string>
+	<string>http://testhost.com</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

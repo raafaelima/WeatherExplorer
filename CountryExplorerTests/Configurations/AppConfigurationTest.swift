@@ -13,7 +13,7 @@ class AppConfigurationTest: XCTestCase {
 
     func testHostIsFilled() throws {
         let host = AppConfiguration.shared.host
-        XCTAssertEqual(host, "http://testhost.com/v2")
+        XCTAssertEqual(host, "http://testhost.com")
     }
 
     func testApiKeyIsFilled() throws {

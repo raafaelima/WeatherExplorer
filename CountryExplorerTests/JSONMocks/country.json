@@ -1,0 +1,19 @@
+{
+    "name": "Portugal",
+    "topLevelDomain": [
+        ".pt"
+    ],
+    "alpha2Code": "PT",
+    "alpha3Code": "PRT",
+    "callingCodes": [
+        "351"
+    ],
+    "capital": "Lisbon",
+    "altSpellings": [
+        "PT",
+        "Portuguesa",
+        "Portuguese Republic",
+        "Rep\u00fablica Portuguesa"
+    ],
+    "region": "Europe"
+}
