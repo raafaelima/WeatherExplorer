@@ -1,4 +1,4 @@
-PROJECT_NAME=CountryExplorer
+PROJECT_NAME=WeatherExplorer
 .DEFAULT_GOAL := help
 FASTLANE=$(BUNDLE) exec fastlane
 BUNDLE=$(if $(rbenv > /dev/null), rbenv exec bundle, bundle)
