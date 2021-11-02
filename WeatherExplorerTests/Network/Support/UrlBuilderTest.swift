@@ -29,11 +29,6 @@ class UrlBuilderTest: XCTestCase {
         XCTAssertTrue(url.query!.contains("access_key=123apikey321"))
     }
 
-    func testLanguageIsFilled() throws {
-        let url = sut.build()
-        XCTAssertTrue(url.query!.contains("language=en"))
-    }
-
     func testConversionUnitIsFilled() throws {
         let url = sut.build()
         XCTAssertTrue(url.query!.contains("units=f"))

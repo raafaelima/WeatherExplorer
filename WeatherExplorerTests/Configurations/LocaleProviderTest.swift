@@ -12,12 +12,6 @@ import XCTest
 @testable import WeatherExplorer
 
 class LocaleProviderTest: XCTestCase {
-
-    func testLocaleExists() throws {
-        let locale = LocaleProvider.locale
-        XCTAssertEqual(locale(), "en")
-    }
-
     func testConversionUnitIsFarenheitForEnglish() throws {
         let conversionUnit = LocaleProvider.conversionUnit()
         XCTAssertEqual(conversionUnit, "f")
