@@ -16,7 +16,7 @@ class JsonDataParserMock: DataParser {
         if forceError {
             completion(.failure(.invalidData))
         } else {
-            let response = JSONHelper.getObjectFrom(json: "countries", type: T.self)!
+            let response = JSONHelper.getObjectFrom(json: "weather", type: T.self)!
             completion(.success(response))
         }
     }

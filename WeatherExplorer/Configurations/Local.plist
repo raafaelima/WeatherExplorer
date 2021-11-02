@@ -33,7 +33,7 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>api.countrylayer.com</key>
+			<key>api.weatherstack.com</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>

@@ -25,7 +25,7 @@ class JsonDataParserTest: XCTestCase {
 
         let mockData = "".data(using: .utf8)
 
-        sut.process(data: mockData!) { (result: Result<CountriesResponse, ParserError>) in
+        sut.process(data: mockData!) { (result: Result<WeatherResponse, ParserError>) in
             switch result {
             case .failure(let error):
                 XCTAssertEqual(error, .invalidData)
@@ -44,7 +44,7 @@ class JsonDataParserTest: XCTestCase {
 
         let mockData = "[{\"dummy\":\"dummy\"}]".data(using: .utf8)
 
-        sut.process(data: mockData!) { (result: Result<CountriesResponse, ParserError>) in
+        sut.process(data: mockData!) { (result: Result<WeatherResponse, ParserError>) in
             switch result {
             case .failure(let error):
                 XCTAssertEqual(error, .invalidData)
@@ -61,13 +61,14 @@ class JsonDataParserTest: XCTestCase {
 
         let expectation = XCTestExpectation(description: "response")
 
-        let sampleProfileData = JSONHelper.getObjectFrom(json: "country", type: CountriesResponse.self)!
+        let sampleProfileData = JSONHelper.getObjectFrom(json: "weather", type: WeatherResponse.self)!
         let mockData = try JSONEncoder().encode(sampleProfileData)
 
-        sut.process(data: mockData) { (result: Result<CountriesResponse, ParserError>) in
+        sut.process(data: mockData) { (result: Result<WeatherResponse, ParserError>) in
             switch result {
-            case .success(let country):
-                XCTAssertEqual(country.name, "Portugal")
+            case .success(let response):
+                XCTAssertEqual(response.location.name, "Recife")
+                XCTAssertEqual(response.weather.temperature, 28)
                 expectation.fulfill()
             default:
                 XCTFail()
@@ -76,27 +77,4 @@ class JsonDataParserTest: XCTestCase {
 
         wait(for: [expectation], timeout: 1)
     }
-
-    func testShouldReturnValidDataArrayWhenServerRespondAValidJson() throws {
-
-        let expectation = XCTestExpectation(description: "response")
-
-        let sampleProfileData = JSONHelper.getObjectFrom(json: "countries", type: [CountriesResponse].self)!
-        let mockData = try JSONEncoder().encode(sampleProfileData)
-
-        sut.process(data: mockData) { (result: Result<[CountriesResponse], ParserError>) in
-            switch result {
-            case .success(let countries):
-                XCTAssertEqual(countries.count, 2)
-                XCTAssertEqual(countries[0].name, "Brazil")
-                XCTAssertEqual(countries[1].name, "Portugal")
-                expectation.fulfill()
-            default:
-                XCTFail()
-            }
-        }
-
-        wait(for: [expectation], timeout: 1)
-    }
-
 }

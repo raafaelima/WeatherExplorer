@@ -24,7 +24,7 @@ class URLSessionNetworkProviderMock: NetworkProvider {
         if forceError {
             completion(.failure(.emptyData))
         } else {
-            let data = JSONHelper.getDataFrom(json: "country")!
+            let data = JSONHelper.getDataFrom(json: "weather")!
             completion(.success(data))
         }
     }

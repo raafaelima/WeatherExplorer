@@ -1,0 +1,11 @@
+{
+    "name": "Recife",
+    "country": "Brazil",
+    "region": "Pernambuco",
+    "lat": "-8.050",
+    "lon": "-34.900",
+    "timezone_id": "America\/Noronha",
+    "localtime": "2021-11-02 19:40",
+    "localtime_epoch": 1635882000,
+    "utc_offset": "-2.0"
+}
