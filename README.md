@@ -1,4 +1,4 @@
-# CountriesExplorer
+# WeatherExplorer
 
 ## About the APP
 The app is architected using the principles of SOLID and PACT, I believe that this is sufficient to get a clear understanding of the code and how to navigate through it. Also, the app is written in Swift 5
