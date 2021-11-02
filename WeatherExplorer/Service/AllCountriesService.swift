@@ -1,5 +1,5 @@
 //
-//  AllCountriesService.swift
+//  WeatherService.swift
 //  WeatherExplorer
 //
 //  Created by Rafael Lima on 28/10/2021.
@@ -7,24 +7,22 @@
 
 import Foundation
 
-struct AllCountriesService: Service {
+struct WeatherService: Service {
 
-    var endpoint: Endpoint
     var dataParser: DataParser
     var cacheManager: CacheManager
     var networkProvider: NetworkProvider
 
-    init(endpoint: Endpoint = AllCountriesEndpoint(),
-         dataParser: DataParser = JsonDataParser(),
+    init(dataParser: DataParser = JsonDataParser(),
          cacheManager: CacheManager = LocalCacheManager(),
          networkProvider: NetworkProvider = URLSessionNetworkProvider()) {
-        self.endpoint = endpoint
         self.dataParser = dataParser
         self.cacheManager = cacheManager
         self.networkProvider = networkProvider
     }
 
-    func get(completion: @escaping ([Country]) -> Void) {
+    func currentWeatherFrom(city: String, completion: @escaping (Location) -> Void) {
+        let endpoint = CurrentWeatherEndpoint(city: city)
         networkProvider.requestData(from: endpoint) { (result: Result<Data, ApiError>) in
             switch result {
             case .success(let response):
@@ -36,25 +34,25 @@ struct AllCountriesService: Service {
         }
     }
 
-    private func handleSuccess(_ response: Data, _ completion: @escaping ([Country]) -> Void) {
+    private func handleSuccess(_ response: Data, _ completion: @escaping (Location) -> Void) {
         cacheManager.save(onCache: response)
         parseDataToModel(data: response, completion)
     }
 
-    private func handleError(_ completion: @escaping ([Country]) -> Void) {
+    private func handleError(_ completion: @escaping (Location) -> Void) {
         let cachedData = cacheManager.load()
         parseDataToModel(data: cachedData, completion)
     }
 
-    private func parseDataToModel(data: Data, _ completion: @escaping ([Country]) -> Void) {
-        dataParser.process(data: data) { (result: Result<[CountriesResponse], ParserError>) in
+    private func parseDataToModel(data: Data, _ completion: @escaping (Location) -> Void) {
+        dataParser.process(data: data) { (result: Result<WeatherResponse, ParserError>) in
             switch result {
-            case .success(let parsedData):
-                let countries = parsedData.compactMap({ $0.parse() })
-                completion(countries)
+            case .success(let data):
+                let locationWithWeatherInfo = data.parse()
+                completion(locationWithWeatherInfo)
             case .failure(let error):
                 print("Error at Parsing Data: \(error)")
-                completion([])
+                completion(Location.noData)
             }
         }
     }

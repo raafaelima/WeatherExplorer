@@ -1,5 +1,5 @@
 //
-//  AllCountriesServiceTest.swift
+//  WeatherServiceTest.swift
 //  WeatherExplorerTests
 //
 //  Created by Rafael Lima on 28/10/2021.
@@ -8,28 +8,27 @@
 import XCTest
 @testable import WeatherExplorer
 
-class AllCountriesServiceTest: XCTestCase {
+class WeatherServiceTest: XCTestCase {
 
-    var sut: AllCountriesService!
+    var sut: WeatherService!
 
-    private let mockEndpoint = DummyEndpoint()
     private let dataParserMock = JsonDataParserMock()
     private let cacheManagerMock = CacheManagerMock()
     private let  networkProviderMock = URLSessionNetworkProviderMock()
 
     override func setUp() {
         super.setUp()
-        sut = AllCountriesService(endpoint: mockEndpoint, dataParser: dataParserMock, cacheManager: cacheManagerMock, networkProvider: networkProviderMock)
+        sut = WeatherService(dataParser: dataParserMock, cacheManager: cacheManagerMock, networkProvider: networkProviderMock)
     }
 
     func testServiceReturnListWhenTheDataIsValid() throws {
 
         let expectation = XCTestExpectation(description: "response")
 
-        sut.get { countries in
-            XCTAssertEqual(countries.count, 2)
-            XCTAssertEqual(countries[0].name, "Brazil")
-            XCTAssertEqual(countries[1].name, "Portugal")
+        sut.currentWeatherFrom(city: "Recife") { location in
+            XCTAssertEqual(location.name, "Recife")
+            XCTAssertEqual(location.country, "Brazil")
+            XCTAssertEqual(location.region, "Pernambuco")
             expectation.fulfill()
         }
 
@@ -40,7 +39,7 @@ class AllCountriesServiceTest: XCTestCase {
 
         let expectation = XCTestExpectation(description: "response")
 
-        sut.get { _ in
+        sut.currentWeatherFrom(city: "Recife") { _ in
             XCTAssertTrue(self.cacheManagerMock.didCallSave)
             expectation.fulfill()
         }
@@ -54,8 +53,8 @@ class AllCountriesServiceTest: XCTestCase {
 
         networkProviderMock.forceError = true
 
-        sut.get { countries in
-            XCTAssertEqual(countries.count, 2)
+        sut.currentWeatherFrom(city: "Recife") { location in
+            XCTAssertEqual(location.name, "Recife")
             XCTAssertTrue(self.cacheManagerMock.didCallLoad)
             expectation.fulfill()
         }
@@ -69,8 +68,8 @@ class AllCountriesServiceTest: XCTestCase {
 
         dataParserMock.forceError = true
 
-        sut.get { countries in
-            XCTAssertEqual(countries.count, 0)
+        sut.currentWeatherFrom(city: "Recife") { location in
+            XCTAssertTrue(location.name.isEmpty)
             expectation.fulfill()
         }
 

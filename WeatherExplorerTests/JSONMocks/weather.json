@@ -1,0 +1,41 @@
+{
+    "request": {
+        "type": "City",
+        "query": "Recife, Brazil",
+        "language": "en",
+        "unit": "m"
+    },
+    "location": {
+        "name": "Recife",
+        "country": "Brazil",
+        "region": "Pernambuco",
+        "lat": "-8.050",
+        "lon": "-34.900",
+        "timezone_id": "America\/Noronha",
+        "localtime": "2021-11-02 19:40",
+        "localtime_epoch": 1635882000,
+        "utc_offset": "-2.0"
+    },
+    "current": {
+        "observation_time": "09:40 PM",
+        "temperature": 28,
+        "weather_code": 116,
+        "weather_icons": [
+            "https:\/\/assets.weatherstack.com\/images\/wsymbols01_png_64\/wsymbol_0004_black_low_cloud.png"
+        ],
+        "weather_descriptions": [
+            "Partly cloudy"
+        ],
+        "wind_speed": 13,
+        "wind_degree": 60,
+        "wind_dir": "ENE",
+        "pressure": 1011,
+        "precip": 0,
+        "humidity": 74,
+        "cloudcover": 50,
+        "feelslike": 32,
+        "uv_index": 1,
+        "visibility": 10,
+        "is_day": "no"
+    }
+}

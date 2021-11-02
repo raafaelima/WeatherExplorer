@@ -7,8 +7,23 @@
 
 import Foundation
 
-extension CountriesResponse {
-    func parse() -> Country {
-        return Country(name: self.name, capital: self.capital, region: self.region)
+extension WeatherResponse {
+    func parse() -> Location {
+        return Location(
+            name: self.location.name,
+            country: self.location.country,
+            region: self.location.region,
+            latitude: self.location.latitude,
+            longitude: self.location.longitude,
+            weather: parseWeather()
+        )
+    }
+
+    private func parseWeather() -> Weather {
+        return Weather(
+            temperature: self.weather.temperature,
+            feelsLike: self.weather.feelslike,
+            descriptions: self.weather.weatherDescriptions
+        )
     }
 }
