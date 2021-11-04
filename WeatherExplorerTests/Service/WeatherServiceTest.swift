@@ -25,7 +25,7 @@ class WeatherServiceTest: XCTestCase {
 
         let expectation = XCTestExpectation(description: "response")
 
-        sut.currentWeatherFrom(city: "Recife") { location in
+        sut.currentWeather(of: "Recife") { location in
             XCTAssertEqual(location.name, "Recife")
             XCTAssertEqual(location.country, "Brazil")
             XCTAssertEqual(location.region, "Pernambuco")
@@ -39,7 +39,7 @@ class WeatherServiceTest: XCTestCase {
 
         let expectation = XCTestExpectation(description: "response")
 
-        sut.currentWeatherFrom(city: "Recife") { _ in
+        sut.currentWeather(of: "Recife") { _ in
             XCTAssertTrue(self.cacheManagerMock.didCallSave)
             expectation.fulfill()
         }
@@ -53,7 +53,7 @@ class WeatherServiceTest: XCTestCase {
 
         networkProviderMock.forceError = true
 
-        sut.currentWeatherFrom(city: "Recife") { location in
+        sut.currentWeather(of: "Recife") { location in
             XCTAssertEqual(location.name, "Recife")
             XCTAssertTrue(self.cacheManagerMock.didCallLoad)
             expectation.fulfill()
@@ -68,7 +68,7 @@ class WeatherServiceTest: XCTestCase {
 
         dataParserMock.forceError = true
 
-        sut.currentWeatherFrom(city: "Recife") { location in
+        sut.currentWeather(of: "Recife") { location in
             XCTAssertTrue(location.name.isEmpty)
             expectation.fulfill()
         }

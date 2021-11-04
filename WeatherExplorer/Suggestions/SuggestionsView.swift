@@ -8,5 +8,5 @@
 import Foundation
 
 protocol SuggestionsView: AnyObject {
-    func present(_ suggestions: [Suggestion])
+    func present(_ suggestions: [Location])
 }

@@ -11,9 +11,13 @@ struct Location {
     let name: String
     let country: String
     let region: String
-    let latitude: String
-    let longitude: String
+    let latitude: Double
+    let longitude: Double
     let weather: Weather
 
-    static let noData = Location(name: "", country: "", region: "", latitude: "", longitude: "", weather: Weather.noData)
+    static let noData = Location(name: "", country: "", region: "", latitude: 0.0, longitude: 0.0, weather: Weather.noData)
+
+    func description() -> String {
+        return "\(region), \(country)"
+    }
 }

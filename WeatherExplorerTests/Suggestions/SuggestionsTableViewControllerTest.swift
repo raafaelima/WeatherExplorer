@@ -10,16 +10,15 @@ import XCTest
 
 class SuggestionsTableViewControllerTest: XCTestCase {
 
-    var sut: SuggestionsTableViewController!
+    private var sut: SuggestionsTableViewController!
 
     override func setUp() {
         super.setUp()
 
-        let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let mainViewController = storyBoard.instantiateViewController(withIdentifier: "suggestions") as? SuggestionsTableViewController
-
+        let mainViewController = SuggestionsTableViewController.instantiate()
         let navigationController = UINavigationController()
-        navigationController.viewControllers.append(mainViewController!)
+        navigationController.viewControllers.append(mainViewController)
+
         sut = mainViewController
         sut.suggestionsDataSet = suggestions()
 
@@ -41,13 +40,34 @@ class SuggestionsTableViewControllerTest: XCTestCase {
         XCTAssertEqual(sut.tableView.numberOfSections, 1)
     }
 
+    func testCollectionViewHaveTheCorrectCellAtIndex() throws {
+        sut.viewDidLoad()
+
+        sut.tableView.numberOfRows(inSection: 0)
+
+        let cell = sut.tableView.cellForRow(at: IndexPath(row: 0, section: 0))!
+
+        XCTAssertEqual(cell.textLabel!.text, "Recife")
+        XCTAssertEqual(cell.detailTextLabel!.text, "Pernambuco, Brazil")
+    }
+
+    func testPrepareNavigateTheLocationDetailsVC() throws {
+        let mockCoordinator = MainCoordinatorMock(navigationController: UINavigationController())
+        sut.coordinator = mockCoordinator
+
+        sut.tableView.numberOfRows(inSection: 0)
+        sut.tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
+
+        XCTAssertNotNil(mockCoordinator.didCallDetails)
+    }
+
     // TODO: Replace by Real Database Implementation
-    func suggestions() -> [Suggestion] {
+    func suggestions() -> [Location] {
         return [
-            Suggestion(name: "Recife", country: "Brazil", region: "Pernambuco"),
-            Suggestion(name: "Rondonia", country: "Brazil", region: "Pernambuco"),
-            Suggestion(name: "Porto", country: "Portugal", region: "Porto"),
-            Suggestion(name: "Dublin", country: "Ireland", region: "Dublin")
+            Location(name: "Recife", country: "Brazil", region: "Pernambuco", latitude: 0.0, longitude: 0.0, weather: Weather.noData),
+            Location(name: "Rondonia", country: "Brazil", region: "Roraima", latitude: 0.0, longitude: 0.0, weather: Weather.noData),
+            Location(name: "Porto", country: "Portugal", region: "Porto", latitude: 0.0, longitude: 0.0, weather: Weather.noData),
+            Location(name: "Dublin", country: "Ireland", region: "Dublin", latitude: 0.0, longitude: 0.0, weather: Weather.noData)
         ]
     }
 }

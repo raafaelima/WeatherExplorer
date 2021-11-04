@@ -10,12 +10,12 @@ import Foundation
 class SuggestionRepository {
 
     // TODO: Replace by Real Database Implementation
-    func lastSearchedLocations() -> [Suggestion] {
+    func lastSearchedLocations() -> [Location] {
         return [
-            Suggestion(name: "Recife", country: "Brazil", region: "Pernambuco"),
-            Suggestion(name: "Rondonia", country: "Brazil", region: "Pernambuco"),
-            Suggestion(name: "Porto", country: "Portugal", region: "Porto"),
-            Suggestion(name: "Dublin", country: "Ireland", region: "Dublin")
+            Location(name: "Recife", country: "Brazil", region: "Pernambuco", latitude: 0.0, longitude: 0.0, weather: Weather.noData),
+            Location(name: "Rondonia", country: "Brazil", region: "Pernambuco", latitude: 0.0, longitude: 0.0, weather: Weather.noData),
+            Location(name: "Porto", country: "Portugal", region: "Porto", latitude: 0.0, longitude: 0.0, weather: Weather.noData),
+            Location(name: "Dublin", country: "Ireland", region: "Dublin", latitude: 0.0, longitude: 0.0, weather: Weather.noData)
         ]
     }
 }
