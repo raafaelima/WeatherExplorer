@@ -27,6 +27,7 @@
 		357C3C0A273478B700039DF2 /* LocationDetailViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357C3C09273478B700039DF2 /* LocationDetailViewControllerTest.swift */; };
 		357C3C0D27347ABF00039DF2 /* LocationExplorerViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357C3C0C27347ABF00039DF2 /* LocationExplorerViewControllerTest.swift */; };
 		357C3C122734915B00039DF2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 357C3C142734915B00039DF2 /* Localizable.strings */; };
+		357C3C172734952900039DF2 /* LocationExplorerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357C3C162734952900039DF2 /* LocationExplorerPresenter.swift */; };
 		358AA953273358E100E3B442 /* SuggestionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358AA952273358E100E3B442 /* SuggestionsTableViewController.swift */; };
 		358AA9552733591D00E3B442 /* SuggestionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358AA9542733591D00E3B442 /* SuggestionsPresenter.swift */; };
 		358AA9572733594000E3B442 /* SuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358AA9562733594000E3B442 /* SuggestionsView.swift */; };
@@ -119,6 +120,7 @@
 		357C3C0F2734913300039DF2 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		357C3C132734915B00039DF2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		357C3C152734915D00039DF2 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		357C3C162734952900039DF2 /* LocationExplorerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExplorerPresenter.swift; sourceTree = "<group>"; };
 		358AA952273358E100E3B442 /* SuggestionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsTableViewController.swift; sourceTree = "<group>"; };
 		358AA9542733591D00E3B442 /* SuggestionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsPresenter.swift; sourceTree = "<group>"; };
 		358AA9562733594000E3B442 /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			children = (
 				358AA95C27335CBC00E3B442 /* LocationExplorerViewController.swift */,
 				357C3C02273472F000039DF2 /* LocationExplorerView.swift */,
+				357C3C162734952900039DF2 /* LocationExplorerPresenter.swift */,
 			);
 			path = LocationExplorer;
 			sourceTree = "<group>";
@@ -783,6 +786,7 @@
 				35D644AD272B4EDC00FB3A07 /* Service.swift in Sources */,
 				35ADC003272A26950065717B /* CurrentWeatherEndpoint.swift in Sources */,
 				358AA9602733683F00E3B442 /* SuggestionRepository.swift in Sources */,
+				357C3C172734952900039DF2 /* LocationExplorerPresenter.swift in Sources */,
 				357C3BF4273463C600039DF2 /* Coordinator.swift in Sources */,
 				35ADBFDD272A1C800065717B /* main.swift in Sources */,
 				357C3BF6273463F500039DF2 /* Storyboarded.swift in Sources */,

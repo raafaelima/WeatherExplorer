@@ -15,7 +15,7 @@ struct Weather {
     static let noData = Weather(temperature: 0, feelsLike: 0, descriptions: [])
 
     func temperatureWithIndicator() -> String {
-        return "\(temperature)˚"
+        return "  \(temperature)˚"
     }
 
     func feelsLikeWithIndicator() -> String {
