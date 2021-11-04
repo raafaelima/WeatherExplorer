@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="4Yu-RU-bDb">
-                                <rect key="frame" x="20" y="94" width="374" height="196.5"/>
+                                <rect key="frame" x="20" y="64" width="374" height="196.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recife" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2a-Db-Bi1">
                                         <rect key="frame" x="151" y="0.0" width="72.5" height="33.5"/>
@@ -61,18 +61,26 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hcp-9e-c9J">
+                                <rect key="frame" x="20" y="300.5" width="374" height="361.5"/>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="viD-mu-Nf0"/>
                         <color key="backgroundColor" red="0.16078431369999999" green="0.58735078569999999" blue="0.96237438919999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4Yu-RU-bDb" firstAttribute="leading" secondItem="VSF-vc-nbo" secondAttribute="leading" constant="20" id="Cu5-ZF-INE"/>
                             <constraint firstItem="viD-mu-Nf0" firstAttribute="trailing" secondItem="4Yu-RU-bDb" secondAttribute="trailing" constant="20" id="Lkl-dC-PCE"/>
-                            <constraint firstItem="4Yu-RU-bDb" firstAttribute="top" secondItem="viD-mu-Nf0" secondAttribute="top" constant="50" id="MDW-bn-kAi"/>
+                            <constraint firstItem="4Yu-RU-bDb" firstAttribute="top" secondItem="viD-mu-Nf0" secondAttribute="top" constant="20" id="MDW-bn-kAi"/>
+                            <constraint firstItem="hcp-9e-c9J" firstAttribute="leading" secondItem="viD-mu-Nf0" secondAttribute="leading" constant="20" id="NEP-t1-obx"/>
+                            <constraint firstItem="hcp-9e-c9J" firstAttribute="top" secondItem="4Yu-RU-bDb" secondAttribute="bottom" constant="40" id="Yej-bS-Crs"/>
+                            <constraint firstItem="viD-mu-Nf0" firstAttribute="trailing" secondItem="hcp-9e-c9J" secondAttribute="trailing" constant="20" id="pJ4-lF-he4"/>
+                            <constraint firstItem="viD-mu-Nf0" firstAttribute="bottom" secondItem="hcp-9e-c9J" secondAttribute="bottom" constant="200" id="tdB-ee-n3p"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cityLabel" destination="B2a-Db-Bi1" id="sTr-oQ-oTD"/>
                         <outlet property="feelsLikeLabel" destination="0ii-B0-cef" id="my5-9e-n38"/>
+                        <outlet property="map" destination="hcp-9e-c9J" id="ch5-am-axv"/>
                         <outlet property="temperatureLabel" destination="Olz-97-1GF" id="MsH-Cn-Jzm"/>
                         <outlet property="weatherStatusLabel" destination="AZV-Q5-wDb" id="VVf-9H-SsO"/>
                     </connections>
