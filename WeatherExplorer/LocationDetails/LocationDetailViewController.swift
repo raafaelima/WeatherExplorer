@@ -29,8 +29,11 @@ class LocationDetailViewController: UIViewController, Storyboarded {
         }
 
         cityLabel.text = locationWeather.name
-        temperatureLabel.text = "\(locationWeather.weather.temperature)˚"
-        feelsLikeLabel.text = "Feels Like: \(locationWeather.weather.feelsLike)˚"
+        temperatureLabel.text = locationWeather.weather.temperatureWithIndicator()
+
+        let feelsLikeDescriptor = NSLocalizedString("feelsLikeDescriptor", comment: "")
+        feelsLikeLabel.text = feelsLikeDescriptor + locationWeather.weather.feelsLikeWithIndicator()
+
         weatherStatusLabel.text = locationWeather.weather.descriptions.first ?? ""
     }
 }
