@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  WeatherExplorer
+
+  Created by Rafael Lima on 04/11/2021.
+  
+*/
+
+//Titles
+"feelsLikeDescriptor" = "Feels Like: ";

@@ -24,18 +24,38 @@ class LocationDetailViewControllerTest: XCTestCase {
 
         sut = mainViewController
         sut.coordinator = coordinatorMock
-        sut.location = Location(name: "Recife", country: "Brazil", region: "Pernambuco", latitude: 0.0, longitude: 0.0, weather: Weather.noData)
+        sut.location = mockLocation()
 
         _ = sut.view
+        sut.viewDidLoad()
     }
 
     func testViewDidLoadLoadTheCoordinator() throws {
-        sut.viewDidLoad()
         XCTAssertNotNil(sut.coordinator)
     }
 
     func testViewDidLoadLoadTheLocation() throws {
-        sut.viewDidLoad()
         XCTAssertNotNil(sut.location)
+    }
+
+    func testLocationLabelHasCorrectData() throws {
+        XCTAssertEqual(sut.cityLabel.text, "Recife")
+    }
+
+    func testTemperatureLabelHasCorrectData() throws {
+        XCTAssertEqual(sut.temperatureLabel.text, "28˚")
+    }
+
+    func testWeatherLabelHasCorrectData() throws {
+        XCTAssertEqual(sut.weatherStatusLabel.text, "Partly cloudy")
+    }
+
+    func testFeelsLikeLabelHasCorrectData() throws {
+        XCTAssertEqual(sut.feelsLikeLabel.text, "Feels Like: 32˚")
+    }
+
+    private func mockLocation() -> Location {
+        let weather = Weather(temperature: 28, feelsLike: 32, descriptions: ["Partly cloudy"])
+        return Location(name: "Recife", country: "Brazil", region: "Pernambuco", latitude: 0.0, longitude: 0.0, weather: weather)
     }
 }
