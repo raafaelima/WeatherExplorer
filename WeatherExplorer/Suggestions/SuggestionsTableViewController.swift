@@ -7,9 +7,10 @@
 
 import UIKit
 
-class SuggestionsTableViewController: UITableViewController {
+class SuggestionsTableViewController: UITableViewController, Storyboarded {
 
-    internal var suggestionsDataSet: [Suggestion] = []
+    weak var coordinator: MainCoordinator?
+    internal var suggestionsDataSet: [Location] = []
     internal var suggestionsPresenter: SuggestionsPresenter?
 
     override func viewDidLoad() {
@@ -35,27 +36,20 @@ class SuggestionsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // let selectedItem = matchingItems[indexPath.row]
+        let location = suggestionsDataSet[indexPath.row]
+        coordinator?.details(of: location)
         dismiss(animated: true, completion: nil)
     }
 }
 
 extension SuggestionsTableViewController: SuggestionsView {
-    func present(_ suggestions: [Suggestion]) {
+    func present(_ suggestions: [Location]) {
         self.suggestionsDataSet = suggestions
         self.tableView.reloadData()
     }
 }
 
-extension SuggestionsTableViewController: UISearchBarDelegate, UISearchResultsUpdating {
-
-    // TODO: Request API for Weather Information
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let location = searchBar.text, !location.isEmpty else {
-            return
-        }
-    }
-
+extension SuggestionsTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let location = searchController.searchBar.text, !location.isEmpty else {
             return

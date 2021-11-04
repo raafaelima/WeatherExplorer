@@ -11,9 +11,9 @@ import Foundation
 class SuggestionsViewMock: SuggestionsView {
 
     var didCallPresent = false
-    var dataset: [Suggestion] = []
+    var dataset: [Location] = []
 
-    func present(_ suggestions: [Suggestion]) {
+    func present(_ suggestions: [Location]) {
         didCallPresent = true
         dataset = suggestions
     }

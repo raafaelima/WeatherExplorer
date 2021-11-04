@@ -13,8 +13,8 @@ extension WeatherResponse {
             name: self.location.name,
             country: self.location.country,
             region: self.location.region,
-            latitude: self.location.latitude,
-            longitude: self.location.longitude,
+            latitude: Double(self.location.latitude) ?? 0.0,
+            longitude: Double(self.location.longitude) ?? 0.0,
             weather: parseWeather()
         )
     }

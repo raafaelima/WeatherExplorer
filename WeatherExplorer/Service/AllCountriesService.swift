@@ -21,8 +21,8 @@ struct WeatherService: Service {
         self.networkProvider = networkProvider
     }
 
-    func currentWeatherFrom(city: String, completion: @escaping (Location) -> Void) {
-        let endpoint = CurrentWeatherEndpoint(city: city)
+    func currentWeather(of location: String, completion: @escaping (Location) -> Void) {
+        let endpoint = CurrentWeatherEndpoint(city: location)
         networkProvider.requestData(from: endpoint) { (result: Result<Data, ApiError>) in
             switch result {
             case .success(let response):

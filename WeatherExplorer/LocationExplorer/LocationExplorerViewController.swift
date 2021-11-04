@@ -7,9 +7,10 @@
 
 import UIKit
 
-class LocationExplorerViewController: UIViewController {
+class LocationExplorerViewController: UIViewController, Storyboarded {
 
-    var resultSearchController: UISearchController?
+    weak var coordinator: MainCoordinator?
+    private var resultSearchController: UISearchController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,9 +18,11 @@ class LocationExplorerViewController: UIViewController {
     }
 
     private func setupSearchBar() {
-        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "suggestions") as! SuggestionsTableViewController
+        let locationSearchTable = SuggestionsTableViewController.instantiate()
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable
+        resultSearchController?.delegate = self
+        resultSearchController?.searchBar.delegate = self
 
         resultSearchController?.searchBar.sizeToFit()
         resultSearchController?.searchBar.placeholder = "Search for places"
@@ -27,5 +30,20 @@ class LocationExplorerViewController: UIViewController {
 
         navigationItem.titleView = resultSearchController?.searchBar
         definesPresentationContext = true
+    }
+}
+
+extension LocationExplorerViewController: LocationExplorerView {
+    func presentWeather(of location: Location) {
+        coordinator?.details(of: location)
+    }
+}
+
+extension LocationExplorerViewController: UISearchControllerDelegate, UISearchBarDelegate {
+    // SearchOnAPI
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let location = searchBar.text, !location.isEmpty else {
+            return
+        }
     }
 }
