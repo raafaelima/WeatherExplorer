@@ -4,7 +4,6 @@ identifier_name:
 disabled_rules:
   - line_length
 
-excluded: 
-  - CountriesExplorerTests
-  - fastlane
+included: 
+  - WeatherExplorer
   

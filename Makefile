@@ -1,7 +1,9 @@
 PROJECT_NAME=WeatherExplorer
 .DEFAULT_GOAL := help
 FASTLANE=$(BUNDLE) exec fastlane
+FRAMEWORKS_FOLDER=Carthage/PreBuiltFrameworks
 BUNDLE=$(if $(rbenv > /dev/null), rbenv exec bundle, bundle)
+CARTHAGE_FRAMEWORKS=ls Carthage/Build/iOS/*.framework | grep "\.framework" | cut -d "/" -f 4 | cut -d "." -f 1 | xargs -I '{}'
 
 lint: ## run lint
 	$(FASTLANE) lint
@@ -42,7 +44,20 @@ xcode_autocorrect_files: ## reformat and autocorrect all swift files in the proj
 	swiftlint --fix --format
 
 generate_certificate_pin: ## create the certificate pinning file
-	openssl s_client -connect api.countrylayer.com:443 -showcerts < /dev/null | openssl x509 -outform DER > countrylayer.der
+	openssl s_client -connect api.weatherstack.com:443 -showcerts < /dev/null | openssl x509 -outform DER > apiWeatherStack.der
+
+carthage_clean: ## clean carthage artifacts
+	rm -rf Carthage
+	mkdir -p $(FRAMEWORKS_FOLDER)
+
+carthage_bootstrap: carthage_clean ## bootstrap carthage frameworks
+	./carthage.sh bootstrap --platform iOS --no-use-binaries --cache-builds
+
+carthage_update: ## update carthage packages
+	./carthage.sh update --platform iOS --no-use-binaries --cache-builds
+
+carthage_copy: ## copy carthage frameworks
+	$(CARTHAGE_FRAMEWORKS) env SCRIPT_INPUT_FILE_0=Carthage/build/iOS/'{}'.framework SCRIPT_INPUT_FILE_COUNT=1 carthage copy-frameworks
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
