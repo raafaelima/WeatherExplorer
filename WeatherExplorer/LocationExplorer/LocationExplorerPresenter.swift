@@ -9,19 +9,31 @@ import Foundation
 
 struct LocationExplorerPresenter {
 
-    internal var service: WeatherService
+    private var service: WeatherService
+    private var repository: LocationRepository
+
     weak var delegate: LocationExplorerView?
 
-    init(delegate: LocationExplorerView, service: WeatherService = WeatherService()) {
+    init(delegate: LocationExplorerView, service: WeatherService = WeatherService(), repository: LocationRepository = LocationRepository()) {
         self.delegate = delegate
         self.service = service
+        self.repository = repository
     }
 
     func currentWeather(of city: String) {
         service.currentWeather(of: city) { location in
             OperationQueue.main.addOperation({
-                delegate?.presentWeather(of: location)
+                if !location.name.isEmpty {
+                    save(location: location)
+                    delegate?.presentWeather(of: location)
+                } else {
+                    delegate?.showNoWeatherForLocationError()
+                }
             })
         }
+    }
+
+    private func save(location: Location) {
+        repository.save(location: location)
     }
 }
