@@ -23,7 +23,7 @@ class NSURLSessionPinningDelegate: NSObject, URLSessionDelegate {
                         let data = CFDataGetBytePtr(serverCertificateData)
                         let size = CFDataGetLength(serverCertificateData)
                         let cert1 = NSData(bytes: data, length: size)
-                        let fileDer = Bundle.main.path(forResource: "countrylayer", ofType: "der")
+                        let fileDer = Bundle.main.path(forResource: "apiWeatherStack", ofType: "der")
 
                         if let file = fileDer {
                             if let cert2 = NSData(contentsOfFile: file) {
