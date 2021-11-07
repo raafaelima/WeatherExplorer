@@ -6,7 +6,6 @@ The app is architected using the principles of SOLID and PACT, I believe that th
 In the app you will find the following structure:
 * CountyExplorer - All the app code is in there
 * CountyExploreTests - All the Unit Tests
-* CountyExploreUITests - All The UiTests
 
 ## Thought Process
 You can follow my thought process, architecture diagrams, and some explanations about technical decisions on the [PR history](https://github.com/raafaelima/CountyExplorer/pulls?q=is%3Apr).
@@ -18,7 +17,13 @@ I use Carthage as a dependency manager and the following libraries are used to s
 >```bash
 >XCode Version 13.0 (13A233)
 >Swift Version: 5
+>Realm: 10.18.0
 >```
+
+## High-Level Architecture
+
+![GeneralArch](https://user-images.githubusercontent.com/7543763/140629600-7c81d021-1ab8-43b0-88fd-1770667d243e.png)
+
 
 ## Getting Started
 1. macOS Big Sur 11.6 or higher
