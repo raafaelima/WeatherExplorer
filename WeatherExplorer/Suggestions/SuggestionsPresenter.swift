@@ -10,15 +10,16 @@ import Foundation
 struct SuggestionsPresenter {
 
     private weak var delegate: SuggestionsView?
-    private var repository: SuggestionRepository
+    private var repository: LocationRepository
 
-    init(delegate: SuggestionsView, repository: SuggestionRepository = SuggestionRepository()) {
+    init(delegate: SuggestionsView, repository: LocationRepository = LocationRepository()) {
         self.delegate = delegate
         self.repository = repository
     }
 
     func lastSearched(_ location: String) {
-        let filteredSuggestions = repository.lastSearchedLocations().filter({ $0.name.contains(location) })
-        delegate?.present(filteredSuggestions)
+        repository.lastSearched(location: location) { locations in
+            delegate?.present(locations)
+        }
     }
 }

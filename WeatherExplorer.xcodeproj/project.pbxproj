@@ -32,7 +32,7 @@
 		358AA9552733591D00E3B442 /* SuggestionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358AA9542733591D00E3B442 /* SuggestionsPresenter.swift */; };
 		358AA9572733594000E3B442 /* SuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358AA9562733594000E3B442 /* SuggestionsView.swift */; };
 		358AA95D27335CBC00E3B442 /* LocationExplorerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358AA95C27335CBC00E3B442 /* LocationExplorerViewController.swift */; };
-		358AA9602733683F00E3B442 /* SuggestionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358AA95F2733683F00E3B442 /* SuggestionRepository.swift */; };
+		358AA9602733683F00E3B442 /* LocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358AA95F2733683F00E3B442 /* LocationRepository.swift */; };
 		358AA96327336B2900E3B442 /* SuggestionsTableViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358AA96227336B2900E3B442 /* SuggestionsTableViewControllerTest.swift */; };
 		358AA96727336DCB00E3B442 /* SuggestionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358AA96627336DCB00E3B442 /* SuggestionRepository.swift */; };
 		358AA96927336EA900E3B442 /* SuggestionsPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358AA96827336EA900E3B442 /* SuggestionsPresenterTest.swift */; };
@@ -84,6 +84,23 @@
 		35D644C1272B5AF300FB3A07 /* JsonDataParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D644C0272B5AF300FB3A07 /* JsonDataParserTest.swift */; };
 		35D644C4272B5F4D00FB3A07 /* WeatherServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D644C3272B5F4D00FB3A07 /* WeatherServiceTest.swift */; };
 		35D644C7272B5FB500FB3A07 /* JsonDataParserMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D644C6272B5FB500FB3A07 /* JsonDataParserMock.swift */; };
+		35D6D4C52737549A00EEC753 /* DatabaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D6D4C42737549A00EEC753 /* DatabaseProvider.swift */; };
+		35D6D4CC273755D500EEC753 /* RealmDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D6D4CB273755D500EEC753 /* RealmDataManagerTest.swift */; };
+		35D6D4CD273758D300EEC753 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E8D5C52736FC6D0066F9E3 /* Realm.framework */; };
+		35D6D4CE273758D300EEC753 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E8D5C42736FC6D0066F9E3 /* RealmSwift.framework */; };
+		35D6D4D127375B2C00EEC753 /* LocationRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D6D4D027375B2C00EEC753 /* LocationRepositoryTest.swift */; };
+		35E8D5C62736FC6D0066F9E3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E8D5C42736FC6D0066F9E3 /* RealmSwift.framework */; };
+		35E8D5C72736FC6D0066F9E3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E8D5C52736FC6D0066F9E3 /* Realm.framework */; };
+		35E8D5C92736FD210066F9E3 /* RealmDatabaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8D5C82736FD210066F9E3 /* RealmDatabaseProvider.swift */; };
+		35E8D5CC2737036E0066F9E3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8D5CB2737036E0066F9E3 /* DataManager.swift */; };
+		35E8D5CF273703CB0066F9E3 /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8D5CE273703CB0066F9E3 /* Storable.swift */; };
+		35E8D5D1273704450066F9E3 /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8D5D0273704450066F9E3 /* RealmDataManager.swift */; };
+		35E8D5D32737065B0066F9E3 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8D5D22737065B0066F9E3 /* Repository.swift */; };
+		35E8D5D62737089A0066F9E3 /* LocationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8D5D52737089A0066F9E3 /* LocationDTO.swift */; };
+		35E8D5D8273709320066F9E3 /* WeatherDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8D5D7273709320066F9E3 /* WeatherDTO.swift */; };
+		35E8D5DA27370DD10066F9E3 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8D5D927370DD10066F9E3 /* Mappable.swift */; };
+		35E8D5E1273715820066F9E3 /* Weather+Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8D5E0273715820066F9E3 /* Weather+Mappable.swift */; };
+		35E8D5E3273716440066F9E3 /* Location+Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8D5E2273716440066F9E3 /* Location+Mappable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,7 +142,7 @@
 		358AA9542733591D00E3B442 /* SuggestionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsPresenter.swift; sourceTree = "<group>"; };
 		358AA9562733594000E3B442 /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
 		358AA95C27335CBC00E3B442 /* LocationExplorerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExplorerViewController.swift; sourceTree = "<group>"; };
-		358AA95F2733683F00E3B442 /* SuggestionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionRepository.swift; sourceTree = "<group>"; };
+		358AA95F2733683F00E3B442 /* LocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepository.swift; sourceTree = "<group>"; };
 		358AA96227336B2900E3B442 /* SuggestionsTableViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsTableViewControllerTest.swift; sourceTree = "<group>"; };
 		358AA96627336DCB00E3B442 /* SuggestionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionRepository.swift; sourceTree = "<group>"; };
 		358AA96827336EA900E3B442 /* SuggestionsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsPresenterTest.swift; sourceTree = "<group>"; };
@@ -181,6 +198,21 @@
 		35D644C0272B5AF300FB3A07 /* JsonDataParserTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataParserTest.swift; sourceTree = "<group>"; };
 		35D644C3272B5F4D00FB3A07 /* WeatherServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceTest.swift; sourceTree = "<group>"; };
 		35D644C6272B5FB500FB3A07 /* JsonDataParserMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataParserMock.swift; sourceTree = "<group>"; };
+		35D6D4C42737549A00EEC753 /* DatabaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProvider.swift; sourceTree = "<group>"; };
+		35D6D4CB273755D500EEC753 /* RealmDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataManagerTest.swift; sourceTree = "<group>"; };
+		35D6D4D027375B2C00EEC753 /* LocationRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepositoryTest.swift; sourceTree = "<group>"; };
+		35E8D5C42736FC6D0066F9E3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		35E8D5C52736FC6D0066F9E3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		35E8D5C82736FD210066F9E3 /* RealmDatabaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabaseProvider.swift; sourceTree = "<group>"; };
+		35E8D5CB2737036E0066F9E3 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		35E8D5CE273703CB0066F9E3 /* Storable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
+		35E8D5D0273704450066F9E3 /* RealmDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
+		35E8D5D22737065B0066F9E3 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		35E8D5D52737089A0066F9E3 /* LocationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDTO.swift; sourceTree = "<group>"; };
+		35E8D5D7273709320066F9E3 /* WeatherDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDTO.swift; sourceTree = "<group>"; };
+		35E8D5D927370DD10066F9E3 /* Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
+		35E8D5E0273715820066F9E3 /* Weather+Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+Mappable.swift"; sourceTree = "<group>"; };
+		35E8D5E2273716440066F9E3 /* Location+Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+Mappable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +220,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35E8D5C62736FC6D0066F9E3 /* RealmSwift.framework in Frameworks */,
+				35E8D5C72736FC6D0066F9E3 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +229,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35D6D4CD273758D300EEC753 /* Realm.framework in Frameworks */,
+				35D6D4CE273758D300EEC753 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +310,10 @@
 		358AA95E2733680100E3B442 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				358AA95F2733683F00E3B442 /* SuggestionRepository.swift */,
+				35E8D5D4273708860066F9E3 /* Model */,
+				35E8D5CA2737035E0066F9E3 /* Manager */,
+				35E8D5BE2736FAC20066F9E3 /* Provider */,
+				35E8D5CD273703750066F9E3 /* Repository */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -292,6 +331,8 @@
 		358AA96427336DA100E3B442 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				35D6D4CF27375B1700EEC753 /* Repository */,
+				35D6D4CA273755BC00EEC753 /* Manager */,
 				358AA96527336DAC00E3B442 /* Mock */,
 			);
 			path = Data;
@@ -319,6 +360,7 @@
 				35ADBF93272A137D0065717B /* WeatherExplorer */,
 				35ADBFAA272A13810065717B /* WeatherExplorerTests */,
 				35ADBF92272A137D0065717B /* Products */,
+				35E8D5C32736FC6C0066F9E3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -341,13 +383,13 @@
 				357C3C142734915B00039DF2 /* Localizable.strings */,
 				35ADBF9F272A13810065717B /* LaunchScreen.storyboard */,
 				35ADBF9A272A137D0065717B /* Main.storyboard */,
-				35ADBFC4272A16200065717B /* Configurations */,
+				358AA94F2733578D00E3B442 /* LocationExplorer */,
+				357C3BFB2734675800039DF2 /* LocationDetails */,
+				35D644B0272B50AE00FB3A07 /* Model */,
 				357C3BF22734639300039DF2 /* Coordinator */,
+				35ADBFC4272A16200065717B /* Configurations */,
 				358AA95E2733680100E3B442 /* Data */,
 				35ADBFDF272A26950065717B /* Extensions */,
-				357C3BFB2734675800039DF2 /* LocationDetails */,
-				358AA94F2733578D00E3B442 /* LocationExplorer */,
-				35D644B0272B50AE00FB3A07 /* Model */,
 				35ADBFE1272A26950065717B /* Network */,
 				35D644AB272B4ECF00FB3A07 /* Service */,
 				358AA9502733588200E3B442 /* Suggestions */,
@@ -393,6 +435,8 @@
 				3563B03E272A30E900BC3B3E /* URLSession+Pinning.swift */,
 				35D644B3272B51B200FB3A07 /* CountriesResponse+ParseToModel.swift */,
 				357C3BF72734641E00039DF2 /* Storyboarded+Instantiate.swift */,
+				35E8D5E0273715820066F9E3 /* Weather+Mappable.swift */,
+				35E8D5E2273716440066F9E3 /* Location+Mappable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -664,6 +708,69 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		35D6D4CA273755BC00EEC753 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				35D6D4CB273755D500EEC753 /* RealmDataManagerTest.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		35D6D4CF27375B1700EEC753 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				35D6D4D027375B2C00EEC753 /* LocationRepositoryTest.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		35E8D5BE2736FAC20066F9E3 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				35E8D5C82736FD210066F9E3 /* RealmDatabaseProvider.swift */,
+				35D6D4C42737549A00EEC753 /* DatabaseProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		35E8D5C32736FC6C0066F9E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				35E8D5C52736FC6D0066F9E3 /* Realm.framework */,
+				35E8D5C42736FC6D0066F9E3 /* RealmSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		35E8D5CA2737035E0066F9E3 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				35E8D5CB2737036E0066F9E3 /* DataManager.swift */,
+				35E8D5D0273704450066F9E3 /* RealmDataManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		35E8D5CD273703750066F9E3 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				35E8D5D22737065B0066F9E3 /* Repository.swift */,
+				358AA95F2733683F00E3B442 /* LocationRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		35E8D5D4273708860066F9E3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				35E8D5D52737089A0066F9E3 /* LocationDTO.swift */,
+				35E8D5D7273709320066F9E3 /* WeatherDTO.swift */,
+				35E8D5CE273703CB0066F9E3 /* Storable.swift */,
+				35E8D5D927370DD10066F9E3 /* Mappable.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -674,6 +781,7 @@
 				35ADBF8D272A137D0065717B /* Sources */,
 				35ADBF8E272A137D0065717B /* Frameworks */,
 				35ADBF8F272A137D0065717B /* Resources */,
+				35E8D5C22736FC350066F9E3 /* Copy Carthage Frameworks */,
 			);
 			buildRules = (
 			);
@@ -765,6 +873,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		35E8D5C22736FC350066F9E3 /* Copy Carthage Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+			);
+			name = "Copy Carthage Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncarthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		35ADBF8D272A137D0065717B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -774,18 +905,24 @@
 				358AA9552733591D00E3B442 /* SuggestionsPresenter.swift in Sources */,
 				358AA953273358E100E3B442 /* SuggestionsTableViewController.swift in Sources */,
 				35ADBFFA272A26950065717B /* LocalCacheManager.swift in Sources */,
+				35E8D5E3273716440066F9E3 /* Location+Mappable.swift in Sources */,
 				35ADBFF6272A26950065717B /* Endpoint+UrlRequest.swift in Sources */,
 				35ADBFF9272A26950065717B /* CacheManager.swift in Sources */,
 				35ADBFF7272A26950065717B /* WeatherResponse.swift in Sources */,
 				357C3C03273472F000039DF2 /* LocationExplorerView.swift in Sources */,
 				35019E382731EA5500386EA8 /* Weather.swift in Sources */,
+				35E8D5D1273704450066F9E3 /* RealmDataManager.swift in Sources */,
 				35ADBFFE272A26950065717B /* FileStorageManager.swift in Sources */,
 				35019E362731EA2B00386EA8 /* Location.swift in Sources */,
+				35D6D4C52737549A00EEC753 /* DatabaseProvider.swift in Sources */,
+				35E8D5D62737089A0066F9E3 /* LocationDTO.swift in Sources */,
 				35ADC001272A26950065717B /* Reachability.swift in Sources */,
 				35ADC000272A26950065717B /* NSURLSessionPinningDelegate.swift in Sources */,
 				35D644AD272B4EDC00FB3A07 /* Service.swift in Sources */,
 				35ADC003272A26950065717B /* CurrentWeatherEndpoint.swift in Sources */,
-				358AA9602733683F00E3B442 /* SuggestionRepository.swift in Sources */,
+				358AA9602733683F00E3B442 /* LocationRepository.swift in Sources */,
+				35E8D5D8273709320066F9E3 /* WeatherDTO.swift in Sources */,
+				35E8D5D32737065B0066F9E3 /* Repository.swift in Sources */,
 				357C3C172734952900039DF2 /* LocationExplorerPresenter.swift in Sources */,
 				357C3BF4273463C600039DF2 /* Coordinator.swift in Sources */,
 				35ADBFDD272A1C800065717B /* main.swift in Sources */,
@@ -800,18 +937,23 @@
 				35ADC002272A26950065717B /* URLBuilder.swift in Sources */,
 				35ADC004272A26950065717B /* Endpoint.swift in Sources */,
 				35019E3A2731EB1400386EA8 /* LocationResponse.swift in Sources */,
+				35E8D5E1273715820066F9E3 /* Weather+Mappable.swift in Sources */,
 				35D644B9272B53E500FB3A07 /* JsonDataPaser.swift in Sources */,
 				35D644B7272B539600FB3A07 /* DataParser.swift in Sources */,
 				35ADBFFB272A26950065717B /* NetworkProvider.swift in Sources */,
 				35ADBF95272A137D0065717B /* AppDelegate.swift in Sources */,
 				357C3BF82734641E00039DF2 /* Storyboarded+Instantiate.swift in Sources */,
 				357C3BFA2734644C00039DF2 /* MainCoordinator.swift in Sources */,
+				35E8D5CF273703CB0066F9E3 /* Storable.swift in Sources */,
+				35E8D5DA27370DD10066F9E3 /* Mappable.swift in Sources */,
 				35D644AF272B4FE100FB3A07 /* AllCountriesService.swift in Sources */,
 				358AA9572733594000E3B442 /* SuggestionsView.swift in Sources */,
 				35ADBFC6272A16200065717B /* AppConfiguration.swift in Sources */,
 				35ADBF97272A137D0065717B /* SceneDelegate.swift in Sources */,
 				35ADBFFD272A26950065717B /* StorageManager.swift in Sources */,
+				35E8D5CC2737036E0066F9E3 /* DataManager.swift in Sources */,
 				35D644B4272B51B200FB3A07 /* CountriesResponse+ParseToModel.swift in Sources */,
+				35E8D5C92736FD210066F9E3 /* RealmDatabaseProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -845,7 +987,9 @@
 				35ADBFD6272A1A1F0065717B /* TestingRootViewController.swift in Sources */,
 				35019E412731F44200386EA8 /* LocationResponseTest.swift in Sources */,
 				358AA96C2733711100E3B442 /* SuggestionsViewMock.swift in Sources */,
+				35D6D4CC273755D500EEC753 /* RealmDataManagerTest.swift in Sources */,
 				35D644A3272B45D700FB3A07 /* LocalCacheManagerTest.swift in Sources */,
+				35D6D4D127375B2C00EEC753 /* LocationRepositoryTest.swift in Sources */,
 				35D644A9272B45D700FB3A07 /* CurrentWeatherEndpointTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -944,7 +1088,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = WeatherExplorer/Configurations/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1001,7 +1145,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = WeatherExplorer/Configurations/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1018,6 +1162,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherExplorer/Configurations/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1045,6 +1193,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherExplorer/Configurations/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1072,6 +1224,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1096,6 +1252,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1166,7 +1326,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = WeatherExplorer/Configurations/Local.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1183,6 +1343,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherExplorer/Configurations/Local.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1210,6 +1374,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (

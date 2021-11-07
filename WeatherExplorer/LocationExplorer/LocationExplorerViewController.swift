@@ -40,6 +40,10 @@ extension LocationExplorerViewController: LocationExplorerView {
     func presentWeather(of location: Location) {
         coordinator?.details(of: location)
     }
+
+    func showNoWeatherForLocationError() {
+
+    }
 }
 
 extension LocationExplorerViewController: UISearchControllerDelegate, UISearchBarDelegate {

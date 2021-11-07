@@ -9,4 +9,5 @@ import Foundation
 
 protocol LocationExplorerView: AnyObject {
     func presentWeather(of location: Location)
+    func showNoWeatherForLocationError()
 }

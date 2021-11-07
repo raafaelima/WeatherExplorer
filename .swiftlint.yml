@@ -6,4 +6,5 @@ disabled_rules:
 
 included: 
   - WeatherExplorer
+  - WeatherExplorerTests
   

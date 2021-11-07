@@ -43,7 +43,7 @@ class LocationDetailViewControllerTest: XCTestCase {
     }
 
     func testTemperatureLabelHasCorrectData() throws {
-        XCTAssertEqual(sut.temperatureLabel.text, "28˚")
+        XCTAssertEqual(sut.temperatureLabel.text, "  28˚")
     }
 
     func testWeatherLabelHasCorrectData() throws {
