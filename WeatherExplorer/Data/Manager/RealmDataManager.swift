@@ -23,20 +23,6 @@ class RealmDataManager: DataManager {
         }
     }
 
-    func update(object: Storable) throws {
-        guard let database = realm, let object = object as? Object else { throw RealmError.realmIsNil }
-        try database.write {
-            database.add(object, update: .modified)
-        }
-    }
-
-    func delete(object: Storable) throws {
-        guard let database = realm, let object = object as? Object else { throw RealmError.realmIsNil }
-        try database.write {
-            database.delete(object)
-        }
-    }
-
     func fetch<T>(_ model: T.Type, predicate: NSPredicate?, completion: (([T]) -> Void)) where T: Storable {
         guard let database = realm, let model = model as? Object.Type else { return }
 

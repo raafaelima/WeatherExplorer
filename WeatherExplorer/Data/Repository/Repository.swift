@@ -7,21 +7,13 @@
 
 import Foundation
 
-protocol Repository {
+protocol Repository: AnyObject {
     var dbManager: DataManager { get }
 }
 
 extension Repository {
-    func update(object: Storable) throws {
-        try dbManager.update(object: object)
-    }
-
     func save(object: Storable) throws {
         try dbManager.save(object: object)
-    }
-
-    func delete(object: Storable) throws {
-        try dbManager.delete(object: object)
     }
 
     func fetch<T>(_ model: T.Type, predicate: NSPredicate?, completion: (([T]) -> Void)) where T: Storable {

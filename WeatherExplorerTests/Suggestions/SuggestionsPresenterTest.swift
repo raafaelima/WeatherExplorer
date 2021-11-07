@@ -12,12 +12,12 @@ class SuggestionsPresenterTest: XCTestCase {
 
     private var sut: SuggestionsPresenter!
     private var delegateMock: SuggestionsViewMock!
-    private var repositoryMock: SuggestionRepositoryMock!
+    private var repositoryMock: LocationRepositoryMock!
 
     override func setUp() {
         super.setUp()
         delegateMock = SuggestionsViewMock()
-        repositoryMock = SuggestionRepositoryMock()
+        repositoryMock = LocationRepositoryMock()
         sut = SuggestionsPresenter(delegate: delegateMock, repository: repositoryMock)
     }
 

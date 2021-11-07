@@ -84,6 +84,11 @@
 		35D644C1272B5AF300FB3A07 /* JsonDataParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D644C0272B5AF300FB3A07 /* JsonDataParserTest.swift */; };
 		35D644C4272B5F4D00FB3A07 /* WeatherServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D644C3272B5F4D00FB3A07 /* WeatherServiceTest.swift */; };
 		35D644C7272B5FB500FB3A07 /* JsonDataParserMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D644C6272B5FB500FB3A07 /* JsonDataParserMock.swift */; };
+		35D6D4C52737549A00EEC753 /* DatabaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D6D4C42737549A00EEC753 /* DatabaseProvider.swift */; };
+		35D6D4CC273755D500EEC753 /* RealmDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D6D4CB273755D500EEC753 /* RealmDataManagerTest.swift */; };
+		35D6D4CD273758D300EEC753 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E8D5C52736FC6D0066F9E3 /* Realm.framework */; };
+		35D6D4CE273758D300EEC753 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E8D5C42736FC6D0066F9E3 /* RealmSwift.framework */; };
+		35D6D4D127375B2C00EEC753 /* LocationRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D6D4D027375B2C00EEC753 /* LocationRepositoryTest.swift */; };
 		35E8D5C62736FC6D0066F9E3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E8D5C42736FC6D0066F9E3 /* RealmSwift.framework */; };
 		35E8D5C72736FC6D0066F9E3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E8D5C52736FC6D0066F9E3 /* Realm.framework */; };
 		35E8D5C92736FD210066F9E3 /* RealmDatabaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8D5C82736FD210066F9E3 /* RealmDatabaseProvider.swift */; };
@@ -193,6 +198,9 @@
 		35D644C0272B5AF300FB3A07 /* JsonDataParserTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataParserTest.swift; sourceTree = "<group>"; };
 		35D644C3272B5F4D00FB3A07 /* WeatherServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceTest.swift; sourceTree = "<group>"; };
 		35D644C6272B5FB500FB3A07 /* JsonDataParserMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataParserMock.swift; sourceTree = "<group>"; };
+		35D6D4C42737549A00EEC753 /* DatabaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProvider.swift; sourceTree = "<group>"; };
+		35D6D4CB273755D500EEC753 /* RealmDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataManagerTest.swift; sourceTree = "<group>"; };
+		35D6D4D027375B2C00EEC753 /* LocationRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepositoryTest.swift; sourceTree = "<group>"; };
 		35E8D5C42736FC6D0066F9E3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		35E8D5C52736FC6D0066F9E3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		35E8D5C82736FD210066F9E3 /* RealmDatabaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabaseProvider.swift; sourceTree = "<group>"; };
@@ -221,6 +229,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35D6D4CD273758D300EEC753 /* Realm.framework in Frameworks */,
+				35D6D4CE273758D300EEC753 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +331,8 @@
 		358AA96427336DA100E3B442 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				35D6D4CF27375B1700EEC753 /* Repository */,
+				35D6D4CA273755BC00EEC753 /* Manager */,
 				358AA96527336DAC00E3B442 /* Mock */,
 			);
 			path = Data;
@@ -696,10 +708,27 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		35D6D4CA273755BC00EEC753 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				35D6D4CB273755D500EEC753 /* RealmDataManagerTest.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		35D6D4CF27375B1700EEC753 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				35D6D4D027375B2C00EEC753 /* LocationRepositoryTest.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		35E8D5BE2736FAC20066F9E3 /* Provider */ = {
 			isa = PBXGroup;
 			children = (
 				35E8D5C82736FD210066F9E3 /* RealmDatabaseProvider.swift */,
+				35D6D4C42737549A00EEC753 /* DatabaseProvider.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -885,6 +914,7 @@
 				35E8D5D1273704450066F9E3 /* RealmDataManager.swift in Sources */,
 				35ADBFFE272A26950065717B /* FileStorageManager.swift in Sources */,
 				35019E362731EA2B00386EA8 /* Location.swift in Sources */,
+				35D6D4C52737549A00EEC753 /* DatabaseProvider.swift in Sources */,
 				35E8D5D62737089A0066F9E3 /* LocationDTO.swift in Sources */,
 				35ADC001272A26950065717B /* Reachability.swift in Sources */,
 				35ADC000272A26950065717B /* NSURLSessionPinningDelegate.swift in Sources */,
@@ -957,7 +987,9 @@
 				35ADBFD6272A1A1F0065717B /* TestingRootViewController.swift in Sources */,
 				35019E412731F44200386EA8 /* LocationResponseTest.swift in Sources */,
 				358AA96C2733711100E3B442 /* SuggestionsViewMock.swift in Sources */,
+				35D6D4CC273755D500EEC753 /* RealmDataManagerTest.swift in Sources */,
 				35D644A3272B45D700FB3A07 /* LocalCacheManagerTest.swift in Sources */,
+				35D6D4D127375B2C00EEC753 /* LocationRepositoryTest.swift in Sources */,
 				35D644A9272B45D700FB3A07 /* CurrentWeatherEndpointTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1056,7 +1088,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = WeatherExplorer/Configurations/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1113,7 +1145,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = WeatherExplorer/Configurations/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1192,6 +1224,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1216,6 +1252,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1286,7 +1326,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = WeatherExplorer/Configurations/Local.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1334,6 +1374,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (

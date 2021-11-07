@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LocationRepository: Repository {
+class LocationRepository: Repository {
 
     var dbManager: DataManager
 

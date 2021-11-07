@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-struct RealmDatabaseProvider {
+struct RealmDatabaseProvider: DatabaseProvider {
 
     let configuration: Realm.Configuration
 
