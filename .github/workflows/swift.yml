@@ -27,6 +27,9 @@ jobs:
 
       - name: Bundle Install
         run: bundle install
+      
+      - name: Install Dependencies
+        run: ./carthage.sh bootstrap --platform iOS --no-use-binaries --cache-builds
         
       - name: Run tests
         run: bundle exec fastlane test
