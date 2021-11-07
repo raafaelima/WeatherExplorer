@@ -89,6 +89,7 @@
 		35D6D4CD273758D300EEC753 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E8D5C52736FC6D0066F9E3 /* Realm.framework */; };
 		35D6D4CE273758D300EEC753 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E8D5C42736FC6D0066F9E3 /* RealmSwift.framework */; };
 		35D6D4D127375B2C00EEC753 /* LocationRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D6D4D027375B2C00EEC753 /* LocationRepositoryTest.swift */; };
+		35D6D4D3273765AE00EEC753 /* LocationExplorerPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D6D4D2273765AE00EEC753 /* LocationExplorerPresenterTest.swift */; };
 		35E8D5C62736FC6D0066F9E3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E8D5C42736FC6D0066F9E3 /* RealmSwift.framework */; };
 		35E8D5C72736FC6D0066F9E3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E8D5C52736FC6D0066F9E3 /* Realm.framework */; };
 		35E8D5C92736FD210066F9E3 /* RealmDatabaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8D5C82736FD210066F9E3 /* RealmDatabaseProvider.swift */; };
@@ -201,6 +202,7 @@
 		35D6D4C42737549A00EEC753 /* DatabaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProvider.swift; sourceTree = "<group>"; };
 		35D6D4CB273755D500EEC753 /* RealmDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataManagerTest.swift; sourceTree = "<group>"; };
 		35D6D4D027375B2C00EEC753 /* LocationRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepositoryTest.swift; sourceTree = "<group>"; };
+		35D6D4D2273765AE00EEC753 /* LocationExplorerPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExplorerPresenterTest.swift; sourceTree = "<group>"; };
 		35E8D5C42736FC6D0066F9E3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		35E8D5C52736FC6D0066F9E3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		35E8D5C82736FD210066F9E3 /* RealmDatabaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabaseProvider.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				357C3C0C27347ABF00039DF2 /* LocationExplorerViewControllerTest.swift */,
+				35D6D4D2273765AE00EEC753 /* LocationExplorerPresenterTest.swift */,
 			);
 			path = LocationExplorer;
 			sourceTree = "<group>";
@@ -964,6 +967,7 @@
 				35D644A1272B45D700FB3A07 /* CurrentWeatherResponseTest.swift in Sources */,
 				35D644C4272B5F4D00FB3A07 /* WeatherServiceTest.swift in Sources */,
 				35D644C7272B5FB500FB3A07 /* JsonDataParserMock.swift in Sources */,
+				35D6D4D3273765AE00EEC753 /* LocationExplorerPresenterTest.swift in Sources */,
 				35ADBFD4272A19F70065717B /* TestingSceneDelegate.swift in Sources */,
 				357C3C0D27347ABF00039DF2 /* LocationExplorerViewControllerTest.swift in Sources */,
 				358AA96927336EA900E3B442 /* SuggestionsPresenterTest.swift in Sources */,
