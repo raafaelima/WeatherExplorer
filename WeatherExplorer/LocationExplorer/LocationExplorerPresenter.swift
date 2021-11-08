@@ -9,27 +9,24 @@ import Foundation
 
 struct LocationExplorerPresenter {
 
-    private var service: WeatherService
+    private var service: Service
     private var repository: LocationRepository
 
     weak var delegate: LocationExplorerView?
 
-    init(delegate: LocationExplorerView, service: WeatherService = WeatherService(), repository: LocationRepository = LocationRepository()) {
+    init(delegate: LocationExplorerView, service: Service = WeatherService(), repository: LocationRepository = LocationRepository()) {
         self.delegate = delegate
         self.service = service
         self.repository = repository
     }
 
     func currentWeather(of city: String) {
-        service.currentWeather(of: city) { location in
-            OperationQueue.main.addOperation({
-                if !location.name.isEmpty {
-                    save(location: location)
-                    delegate?.presentWeather(of: location)
-                } else {
-                    delegate?.showNoWeatherForLocationError()
-                }
-            })
+        repository.fetchLocationWith(name: city) { locations in
+            if locations.isEmpty {
+                loadFromServer(city: city)
+            } else {
+                loadFromDatabase(locations: locations)
+            }
         }
     }
 
@@ -43,5 +40,33 @@ struct LocationExplorerPresenter {
 
     private func save(location: Location) {
         repository.save(location: location)
+    }
+
+    private func loadFromDatabase(locations: [Location]) {
+        OperationQueue.main.addOperation({
+
+            guard let location = locations.first else {
+                delegate?.showNoWeatherForLocationError()
+                return
+            }
+
+            delegate?.presentWeather(of: location)
+        })
+    }
+
+    private func loadFromServer(city: String) {
+        service.fetchData(with: city) { locationModel in
+            OperationQueue.main.addOperation({
+
+                let location = locationModel as! Location
+
+                if !location.name.isEmpty {
+                    save(location: location)
+                    delegate?.presentWeather(of: location)
+                } else {
+                    delegate?.showNoWeatherForLocationError()
+                }
+            })
+        }
     }
 }

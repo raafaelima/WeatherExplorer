@@ -18,7 +18,7 @@ struct SuggestionsPresenter {
     }
 
     func lastSearched(_ location: String) {
-        repository.lastSearched(location: location) { locations in
+        repository.fetchLocationWith(name: location) { locations in
             delegate?.present(locations)
         }
     }

@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Location {
+struct Location: Model {
+
     let name: String
     let country: String
     let region: String
@@ -15,7 +16,7 @@ struct Location {
     let longitude: Double
     let weather: Weather
 
-    static let noData = Location(name: "", country: "", region: "", latitude: 0.0, longitude: 0.0, weather: Weather.noData)
+    static var noData: Location = Location(name: "", country: "", region: "", latitude: 0.0, longitude: 0.0, weather: Weather.noData)
 
     func description() -> String {
         return "\(region), \(country)"

@@ -2,7 +2,7 @@
 //  LocationExplorerPresenterTest.swift
 //  WeatherExplorerTests
 //
-//  Created by Rafael Lima on 07/11/2021.
+//  Created by Rafael Lima on 08/11/2021.
 //
 
 import XCTest
@@ -10,28 +10,84 @@ import XCTest
 
 class LocationExplorerPresenterTest: XCTestCase {
 
+    private var sut: LocationExplorerPresenter!
+    private var serviceMock: WeatherServiceMock!
+    private var delegateMock: LocationExplorerViewMock!
+    private var repositoryMock: LocationRepositoryMock!
+
     override func setUp() {
-
+        super.setUp()
+        serviceMock = WeatherServiceMock()
+        delegateMock = LocationExplorerViewMock()
+        repositoryMock = LocationRepositoryMock()
+        sut = LocationExplorerPresenter(delegate: delegateMock, service: serviceMock, repository: repositoryMock)
     }
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func testPresenterShouldCallServiceWhenThereIsNoDataSavedThatMatchTheQuery() throws {
+        repositoryMock.forceError = true
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+        sut.currentWeather(of: "Recife")
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+        let exp = expectation(description: "Test after 2 seconds")
+        let result = XCTWaiter.wait(for: [exp], timeout: 2)
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        if result == XCTWaiter.Result.timedOut {
+            XCTAssertTrue(serviceMock.didCallFetchData)
+            XCTAssertTrue(delegateMock.didCallPresentWeather)
+            exp.fulfill()
+        } else {
+            XCTFail()
         }
     }
 
+    func testPresenterShouldNotCallServiceWhenThereIsDataSavedThatMatchTheQuery() throws {
+
+        sut.currentWeather(of: "Recife")
+
+        let exp = expectation(description: "Test after 2 seconds")
+        let result = XCTWaiter.wait(for: [exp], timeout: 2)
+
+        if result == XCTWaiter.Result.timedOut {
+            XCTAssertFalse(serviceMock.didCallFetchData)
+            XCTAssertTrue(delegateMock.didCallPresentWeather)
+            XCTAssertTrue(repositoryMock.didCallFetchLocationWith)
+            exp.fulfill()
+        } else {
+            XCTFail()
+        }
+    }
+
+    func testPresenterShouldShowErrorWhenDatabaseDoNotHaveTheLocationRequested() throws {
+
+        repositoryMock.forceError = true
+        serviceMock.forceError = true
+
+        sut.currentWeather(of: "Recife")
+
+        let exp = expectation(description: "Test after 2 seconds")
+        let result = XCTWaiter.wait(for: [exp], timeout: 2)
+
+        if result == XCTWaiter.Result.timedOut {
+            XCTAssertTrue(delegateMock.didCallShowNoWeatherForLocation)
+            exp.fulfill()
+        } else {
+            XCTFail()
+        }
+    }
+
+    func testLastSearchedDataShouldBePresented() throws {
+
+        sut.lastSearchedLocations()
+
+        let exp = expectation(description: "Test after 2 seconds")
+        let result = XCTWaiter.wait(for: [exp], timeout: 2)
+
+        if result == XCTWaiter.Result.timedOut {
+            exp.fulfill()
+            XCTAssertTrue(delegateMock.didCallPresentLastSearched)
+            XCTAssertEqual(delegateMock.locations.count, 4)
+        } else {
+            XCTFail()
+        }
+    }
 }

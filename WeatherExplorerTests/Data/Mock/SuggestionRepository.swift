@@ -6,28 +6,49 @@
 //
 
 import Foundation
+import RealmSwift
+
 @testable import WeatherExplorer
 
 class LocationRepositoryMock: LocationRepository {
 
     var forceError = false
-    var didCallLastSearchLocation = false
+    var didCallFetchLocationWith = false
+    var didCallLastSearchedLocations = false
 
-    override func lastSearched(location: String, completionHandler: ([Location]) -> Void) {
+    override init(dataManager: DataManager = RealmDataManager(nil)) {
+        super.init()
+        self.dbManager = dataManager
+    }
 
-        var locations: [Location] = []
-        didCallLastSearchLocation = true
+    override func fetchLocationWith(name: String, completionHandler: ([Location]) -> Void) {
+        didCallFetchLocationWith = true
 
-        if !forceError {
-            locations = [
-                Location(name: "Recife", country: "Brazil", region: "Pernambuco", latitude: 0.0, longitude: 0.0, weather: Weather.noData),
-                Location(name: "Rondonia", country: "Brazil", region: "Pernambuco", latitude: 0.0, longitude: 0.0, weather: Weather.noData),
-                Location(name: "Porto", country: "Portugal", region: "Porto", latitude: 0.0, longitude: 0.0, weather: Weather.noData),
-                Location(name: "Dublin", country: "Ireland", region: "Dublin", latitude: 0.0, longitude: 0.0, weather: Weather.noData)
-            ]
+        if forceError {
+            completionHandler([])
+        } else {
+            let filteredLocations = provideLocations().filter({ $0.name.contains(name) })
+            completionHandler(filteredLocations)
         }
+    }
 
-        let filteredLocations = locations.filter({ $0.name.contains(location) })
-        completionHandler(filteredLocations)
+    override func lastSearchedLocations(completionHandler: ([Location]) -> Void) {
+        didCallLastSearchedLocations = true
+
+        if forceError {
+            completionHandler([])
+        } else {
+            let locations = provideLocations()
+            completionHandler(locations)
+        }
+    }
+
+    private func provideLocations() -> [Location] {
+        return [
+            Location(name: "Recife", country: "Brazil", region: "Pernambuco", latitude: 0.0, longitude: 0.0, weather: Weather.noData),
+            Location(name: "Rondonia", country: "Brazil", region: "Pernambuco", latitude: 0.0, longitude: 0.0, weather: Weather.noData),
+            Location(name: "Porto", country: "Portugal", region: "Porto", latitude: 0.0, longitude: 0.0, weather: Weather.noData),
+            Location(name: "Dublin", country: "Ireland", region: "Dublin", latitude: 0.0, longitude: 0.0, weather: Weather.noData)
+        ]
     }
 }

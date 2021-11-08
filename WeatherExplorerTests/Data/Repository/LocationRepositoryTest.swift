@@ -33,7 +33,7 @@ class LocationRepositoryTest: XCTestCase {
         sut.save(location: rondonia)
         sut.save(location: dublin)
 
-        sut.lastSearched(location: "R") { matchLocations in
+        sut.fetchLocationWith(name: "R") { matchLocations in
             XCTAssertEqual(matchLocations.count, 2)
             XCTAssertEqual(matchLocations[0].name, "Recife")
             XCTAssertEqual(matchLocations[1].name, "Rondonia")

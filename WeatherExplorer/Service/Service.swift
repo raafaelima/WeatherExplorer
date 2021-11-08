@@ -11,4 +11,6 @@ protocol Service {
     var dataParser: DataParser { get }
     var cacheManager: CacheManager { get }
     var networkProvider: NetworkProvider { get }
+
+    func fetchData(with param: String, completion: @escaping (Model) -> Void)
 }
