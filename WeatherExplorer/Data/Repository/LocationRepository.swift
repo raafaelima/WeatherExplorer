@@ -15,9 +15,9 @@ class LocationRepository: Repository {
         self.dbManager = dataManager
     }
 
-    func lastSearched(location: String, completionHandler: ([Location]) -> Void) {
+    func fetchLocationWith(name: String, completionHandler: ([Location]) -> Void) {
 
-        let nameStartsWith = NSPredicate(format: "name BEGINSWITH %@", location)
+        let nameStartsWith = NSPredicate(format: "name BEGINSWITH %@", name)
 
         fetch(LocationDTO.self, predicate: nameStartsWith) { locations in
             let lastSearchLocations = locations.map { Location.mapFromPersistenceObject($0) }
