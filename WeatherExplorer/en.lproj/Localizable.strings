@@ -9,3 +9,8 @@
 //Titles
 "feelsLikeDescriptor" = "Feels Like: ";
 "searchBarHint" = "Search for weather";
+"detailsTitle" = "Weather";
+
+//Alerts
+"emptyDataAlertTitle" = "Oops!";
+"emptyDataAlertMessage" = "There is no results for your search :(";

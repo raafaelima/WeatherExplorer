@@ -31,7 +31,7 @@ class SuggestionsTableViewController: UITableViewController, Storyboarded {
         let cell = tableView.dequeueReusableCell(withIdentifier: "suggestionCell", for: indexPath)
         let suggestion = suggestionsDataSet[indexPath.row]
         cell.textLabel?.text = suggestion.name
-        cell.detailTextLabel?.text = "\(suggestion.region), \(suggestion.country)"
+        cell.detailTextLabel?.text = suggestion.description()
         return cell
     }
 

@@ -25,6 +25,13 @@ class LocationRepository: Repository {
         }
     }
 
+    func lastSearchedLocations(completionHandler: ([Location]) -> Void) {
+        fetch(LocationDTO.self, predicate: nil) { locations in
+            let lastSearchLocations = locations.map { Location.mapFromPersistenceObject($0) }
+            completionHandler(lastSearchLocations)
+        }
+    }
+
     func save(location: Location) {
         do {
             try save(object: location.mapToPersistenceObject())

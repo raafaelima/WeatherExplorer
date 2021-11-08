@@ -9,3 +9,8 @@
 //Titles
 "feelsLikeDescriptor" = "Sensação Térmica: ";
 "searchBarHint" = "Busque uma cidade";
+"detailsTitle" = "Previsão do Tempo";
+
+//Alerts
+"emptyDataAlertTitle" = "Oops!";
+"emptyDataAlertMessage" = "Não há resultados para sua busca :(";

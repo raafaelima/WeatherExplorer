@@ -21,6 +21,7 @@ class LocationDetailViewController: UIViewController, Storyboarded {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = NSLocalizedString("detailsTitle", comment: "")
         loadDataFromLocation()
     }
 

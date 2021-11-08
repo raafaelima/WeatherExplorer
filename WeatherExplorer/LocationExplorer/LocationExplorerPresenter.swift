@@ -33,6 +33,14 @@ struct LocationExplorerPresenter {
         }
     }
 
+    func lastSearchedLocations() {
+        repository.lastSearchedLocations { locations in
+            OperationQueue.main.addOperation({
+                delegate?.presentLastSearched(locations: locations)
+            })
+        }
+    }
+
     private func save(location: Location) {
         repository.save(location: location)
     }
