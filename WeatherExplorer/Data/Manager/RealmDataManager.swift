@@ -19,7 +19,7 @@ class RealmDataManager: DataManager {
     func save(object: Storable) throws {
         guard let database = realm, let object = object as? Object else { throw RealmError.realmIsNil }
         try database.write {
-            database.add(object)
+            database.add(object, update: .modified)
         }
     }
 

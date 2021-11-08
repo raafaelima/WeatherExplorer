@@ -16,4 +16,8 @@ struct Location {
     let weather: Weather
 
     static let noData = Location(name: "", country: "", region: "", latitude: 0.0, longitude: 0.0, weather: Weather.noData)
+
+    func description() -> String {
+        return "\(region), \(country)"
+    }
 }

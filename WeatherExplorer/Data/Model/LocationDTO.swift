@@ -9,7 +9,6 @@ import Foundation
 import RealmSwift
 
 class LocationDTO: Object {
-    @objc dynamic var id: String = UUID().uuidString
     @objc dynamic var name: String = ""
     @objc dynamic var country: String = ""
     @objc dynamic var region: String = ""
@@ -18,7 +17,7 @@ class LocationDTO: Object {
     @objc dynamic var weather: WeatherDTO?
 
     override static func primaryKey() -> String? {
-        return "id"
+        return "name"
     }
 
     convenience init(name: String, country: String, region: String, latitude: Double, longitude: Double, weather: WeatherDTO) {

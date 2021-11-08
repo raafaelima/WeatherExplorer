@@ -9,10 +9,9 @@ import XCTest
 @testable import WeatherExplorer
 
 class LocationExplorerPresenterTest: XCTestCase {
-    
-    
+
     override func setUp() {
-        
+
     }
 
     override func setUpWithError() throws {
