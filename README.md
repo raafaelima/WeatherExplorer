@@ -11,11 +11,13 @@ In the app you will find the following structure:
 You can follow my thought process, architecture diagrams, and some explanations about technical decisions on the [PR history](https://github.com/raafaelima/CountyExplorer/pulls?q=is%3Apr).
 
 ## TechDetails
-I'm using Fastlane to automate the tests and lint executions.
-I use Carthage as a dependency manager and the following libraries are used to support:
+The architecture chosen is the Clean/Onion Architecture, plus MVP design pattern for UI, to keep the things as simple as possible.
+I'm using Fastlane to automate the tests and lint executions and Carthage as a dependency manager. 
+Also, following libraries are used to support:
 
 >```bash
 >XCode Version 13.0 (13A233)
+>iOS: 13.4
 >Swift Version: 5
 >Realm: 10.18.0
 >```
