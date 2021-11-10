@@ -11,7 +11,7 @@ In the app you will find the following structure:
 You can follow my thought process, architecture diagrams, and some explanations about technical decisions on the [PR history](https://github.com/raafaelima/CountyExplorer/pulls?q=is%3Apr).
 
 ## TechDetails
-The architecture chosen is the Clean/Onion Architecture, plus MVP design pattern for UI, to keep the things as simple as possible.
+The architecture chosen is the Clean/Onion Architecture, plus MVP design pattern for UI/Interaction, to keep the things as simple as possible.
 I'm using Fastlane to automate the tests and lint executions and Carthage as a dependency manager. 
 Also, following libraries are used to support:
 
