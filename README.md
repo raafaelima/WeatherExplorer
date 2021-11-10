@@ -4,8 +4,8 @@
 The app is architected using the principles of SOLID and PACT, I believe that this is sufficient to get a clear understanding of the code and how to navigate through it. Also, the app is written in Swift 5
 
 In the app you will find the following structure:
-* CountyExplorer - All the app code is in there
-* CountyExploreTests - All the Unit Tests
+* WeatherExplorer - All the app code is in there
+* WeatherExploreTests - All the Unit Tests
 
 ## Thought Process
 You can follow my thought process, architecture diagrams, and some explanations about technical decisions on the [PR history](https://github.com/raafaelima/CountyExplorer/pulls?q=is%3Apr).
